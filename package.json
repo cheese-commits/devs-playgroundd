@@ -1,0 +1,32 @@
+{
+  "name": "devs-playground",
+  "version": "1.0.0",
+  "description": "Ultraviolet instance",
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "start": "serve -s build -l 8080",
+    "build": "react-scripts build",
+    "dev": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
+  },
+  "keywords": [
+    "proxy"
+  ],
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "serve": "^14.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.13.0",
+    "prettier": "^3.3.3"
+  },
+  "packageManager": "pnpm@9.12.2",
+  "private": true
+}
