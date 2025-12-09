@@ -1,21 +1,25 @@
-FROM node:18-alpine as build
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
-# Install dependencies for building
-COPY package.json pnpm-lock.yaml ./
-# Use npm by default; let npm install fetch dependencies based on package.json
+# Install dependencies
+COPY package.json ./
 RUN npm install
 
+# Copy the rest of the app
 COPY . .
+
+# Build React app
 RUN npm run build
 
 # Production image
-FROM node:18-alpine as production
+FROM node:18-alpine AS production
 WORKDIR /app
+
+# Copy compiled build
 COPY --from=build /app/build ./build
 
-# lightweight static server
+# Install lightweight static server
 RUN npm install -g serve
 
 EXPOSE 8080
